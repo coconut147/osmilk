@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFEF24E72315008B7B25 /* AppDelegate.swift */; };
+		CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF124E72315008B7B25 /* SceneDelegate.swift */; };
+		CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF324E72315008B7B25 /* osmilk.xcdatamodeld */; };
+		CC45CFF724E72315008B7B25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF624E72315008B7B25 /* ContentView.swift */; };
+		CC45CFF924E7231A008B7B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFF824E7231A008B7B25 /* Assets.xcassets */; };
+		CC45CFFC24E7231A008B7B25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFB24E7231A008B7B25 /* Preview Assets.xcassets */; };
+		CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */; };
+		CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D00924E7231A008B7B25 /* osmilkTests.swift */; };
+		CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D01424E7231A008B7B25 /* osmilkUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC45D00624E7231A008B7B25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC45CFE424E72314008B7B25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC45CFEB24E72314008B7B25;
+			remoteInfo = osmilk;
+		};
+		CC45D01124E7231A008B7B25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC45CFE424E72314008B7B25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC45CFEB24E72314008B7B25;
+			remoteInfo = osmilk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CC45CFEC24E72315008B7B25 /* osmilk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = osmilk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC45CFEF24E72315008B7B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CC45CFF124E72315008B7B25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CC45CFF424E72315008B7B25 /* osmilk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = osmilk.xcdatamodel; sourceTree = "<group>"; };
+		CC45CFF624E72315008B7B25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC45CFF824E7231A008B7B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC45CFFB24E7231A008B7B25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CC45CFFE24E7231A008B7B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC45D00024E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC45D00524E7231A008B7B25 /* osmilkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = osmilkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC45D00924E7231A008B7B25 /* osmilkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osmilkTests.swift; sourceTree = "<group>"; };
+		CC45D00B24E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC45D01024E7231A008B7B25 /* osmilkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = osmilkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC45D01424E7231A008B7B25 /* osmilkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osmilkUITests.swift; sourceTree = "<group>"; };
+		CC45D01624E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC45CFE924E72314008B7B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00224E7231A008B7B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00D24E7231A008B7B25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC45CFE324E72314008B7B25 = {
+			isa = PBXGroup;
+			children = (
+				CC45CFEE24E72315008B7B25 /* osmilk */,
+				CC45D00824E7231A008B7B25 /* osmilkTests */,
+				CC45D01324E7231A008B7B25 /* osmilkUITests */,
+				CC45CFED24E72315008B7B25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC45CFED24E72315008B7B25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC45CFEC24E72315008B7B25 /* osmilk.app */,
+				CC45D00524E7231A008B7B25 /* osmilkTests.xctest */,
+				CC45D01024E7231A008B7B25 /* osmilkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC45CFEE24E72315008B7B25 /* osmilk */ = {
+			isa = PBXGroup;
+			children = (
+				CC45CFEF24E72315008B7B25 /* AppDelegate.swift */,
+				CC45CFF124E72315008B7B25 /* SceneDelegate.swift */,
+				CC45CFF624E72315008B7B25 /* ContentView.swift */,
+				CC45CFF824E7231A008B7B25 /* Assets.xcassets */,
+				CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */,
+				CC45D00024E7231A008B7B25 /* Info.plist */,
+				CC45CFF324E72315008B7B25 /* osmilk.xcdatamodeld */,
+				CC45CFFA24E7231A008B7B25 /* Preview Content */,
+			);
+			path = osmilk;
+			sourceTree = "<group>";
+		};
+		CC45CFFA24E7231A008B7B25 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CC45CFFB24E7231A008B7B25 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CC45D00824E7231A008B7B25 /* osmilkTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC45D00924E7231A008B7B25 /* osmilkTests.swift */,
+				CC45D00B24E7231A008B7B25 /* Info.plist */,
+			);
+			path = osmilkTests;
+			sourceTree = "<group>";
+		};
+		CC45D01324E7231A008B7B25 /* osmilkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CC45D01424E7231A008B7B25 /* osmilkUITests.swift */,
+				CC45D01624E7231A008B7B25 /* Info.plist */,
+			);
+			path = osmilkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC45CFEB24E72314008B7B25 /* osmilk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC45D01924E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilk" */;
+			buildPhases = (
+				CC45CFE824E72314008B7B25 /* Sources */,
+				CC45CFE924E72314008B7B25 /* Frameworks */,
+				CC45CFEA24E72314008B7B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = osmilk;
+			productName = osmilk;
+			productReference = CC45CFEC24E72315008B7B25 /* osmilk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CC45D00424E7231A008B7B25 /* osmilkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC45D01C24E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilkTests" */;
+			buildPhases = (
+				CC45D00124E7231A008B7B25 /* Sources */,
+				CC45D00224E7231A008B7B25 /* Frameworks */,
+				CC45D00324E7231A008B7B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC45D00724E7231A008B7B25 /* PBXTargetDependency */,
+			);
+			name = osmilkTests;
+			productName = osmilkTests;
+			productReference = CC45D00524E7231A008B7B25 /* osmilkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CC45D00F24E7231A008B7B25 /* osmilkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC45D01F24E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilkUITests" */;
+			buildPhases = (
+				CC45D00C24E7231A008B7B25 /* Sources */,
+				CC45D00D24E7231A008B7B25 /* Frameworks */,
+				CC45D00E24E7231A008B7B25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC45D01224E7231A008B7B25 /* PBXTargetDependency */,
+			);
+			name = osmilkUITests;
+			productName = osmilkUITests;
+			productReference = CC45D01024E7231A008B7B25 /* osmilkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC45CFE424E72314008B7B25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Frederik Heuser";
+				TargetAttributes = {
+					CC45CFEB24E72314008B7B25 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					CC45D00424E7231A008B7B25 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = CC45CFEB24E72314008B7B25;
+					};
+					CC45D00F24E7231A008B7B25 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = CC45CFEB24E72314008B7B25;
+					};
+				};
+			};
+			buildConfigurationList = CC45CFE724E72314008B7B25 /* Build configuration list for PBXProject "osmilk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC45CFE324E72314008B7B25;
+			productRefGroup = CC45CFED24E72315008B7B25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC45CFEB24E72314008B7B25 /* osmilk */,
+				CC45D00424E7231A008B7B25 /* osmilkTests */,
+				CC45D00F24E7231A008B7B25 /* osmilkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC45CFEA24E72314008B7B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */,
+				CC45CFFC24E7231A008B7B25 /* Preview Assets.xcassets in Resources */,
+				CC45CFF924E7231A008B7B25 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00324E7231A008B7B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00E24E7231A008B7B25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC45CFE824E72314008B7B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */,
+				CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */,
+				CC45CFF724E72315008B7B25 /* ContentView.swift in Sources */,
+				CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00124E7231A008B7B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC45D00C24E7231A008B7B25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC45D00724E7231A008B7B25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC45CFEB24E72314008B7B25 /* osmilk */;
+			targetProxy = CC45D00624E7231A008B7B25 /* PBXContainerItemProxy */;
+		};
+		CC45D01224E7231A008B7B25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC45CFEB24E72314008B7B25 /* osmilk */;
+			targetProxy = CC45D01124E7231A008B7B25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC45CFFE24E7231A008B7B25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC45D01724E7231A008B7B25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CC45D01824E7231A008B7B25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC45D01A24E7231A008B7B25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"osmilk/Preview Content\"";
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = osmilk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC45D01B24E7231A008B7B25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"osmilk/Preview Content\"";
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = osmilk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CC45D01D24E7231A008B7B25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				INFOPLIST_FILE = osmilkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/osmilk.app/osmilk";
+			};
+			name = Debug;
+		};
+		CC45D01E24E7231A008B7B25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				INFOPLIST_FILE = osmilkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/osmilk.app/osmilk";
+			};
+			name = Release;
+		};
+		CC45D02024E7231A008B7B25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				INFOPLIST_FILE = osmilkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = osmilk;
+			};
+			name = Debug;
+		};
+		CC45D02124E7231A008B7B25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4DNN8PU365;
+				INFOPLIST_FILE = osmilkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = osmilk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC45CFE724E72314008B7B25 /* Build configuration list for PBXProject "osmilk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC45D01724E7231A008B7B25 /* Debug */,
+				CC45D01824E7231A008B7B25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC45D01924E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC45D01A24E7231A008B7B25 /* Debug */,
+				CC45D01B24E7231A008B7B25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC45D01C24E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC45D01D24E7231A008B7B25 /* Debug */,
+				CC45D01E24E7231A008B7B25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC45D01F24E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC45D02024E7231A008B7B25 /* Debug */,
+				CC45D02124E7231A008B7B25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC45CFF324E72315008B7B25 /* osmilk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC45CFF424E72315008B7B25 /* osmilk.xcdatamodel */,
+			);
+			currentVersion = CC45CFF424E72315008B7B25 /* osmilk.xcdatamodel */;
+			path = osmilk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CC45CFE424E72314008B7B25 /* Project object */;
+}
