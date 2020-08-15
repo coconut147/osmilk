@@ -25,6 +25,7 @@
 		CCA48D3524E7D7DE0093CBF6 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */; };
 		CCA48D3724E7DB760093CBF6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3624E7DB760093CBF6 /* MapView.swift */; };
 		CCA48D3924E7DFEC0093CBF6 /* OSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */; };
+		CCA48D3C24E804B30093CBF6 /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		CCA48D3624E7DB760093CBF6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMViewController.swift; sourceTree = "<group>"; };
+		CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; name = "geography-class_medres.mbtiles"; path = "resources/geography-class_medres.mbtiles"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		CC45CFEE24E72315008B7B25 /* osmilk */ = {
 			isa = PBXGroup;
 			children = (
+				CCA48D3A24E804440093CBF6 /* MapResources */,
 				CCA48D3624E7DB760093CBF6 /* MapView.swift */,
 				CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */,
 				CC45CFEF24E72315008B7B25 /* AppDelegate.swift */,
@@ -208,6 +211,14 @@
 				CC8F313D24E725BA002F20F6 /* WhirlyGlobeMaplyComponentTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CCA48D3A24E804440093CBF6 /* MapResources */ = {
+			isa = PBXGroup;
+			children = (
+				CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */,
+			);
+			path = MapResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA48D3C24E804B30093CBF6 /* geography-class_medres.mbtiles in Resources */,
 				CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */,
 				CC45CFFC24E7231A008B7B25 /* Preview Assets.xcassets in Resources */,
 				CC45CFF924E7231A008B7B25 /* Assets.xcassets in Resources */,

@@ -18,7 +18,7 @@ struct ContentView: View {
             
             OsmView()
             
-            MapView()
+//            MapView()
                 .frame(height:300)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 300)
