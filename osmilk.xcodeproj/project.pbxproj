@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0253C47177D6A2C2FF55FD49 /* libPods-osmilk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A19CBD83BC506B50292676 /* libPods-osmilk.a */; };
+		CC43DFC024E86C6E00907200 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313F24E7261D002F20F6 /* CoreLocation.framework */; };
+		CC43DFC324E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; };
+		CC43DFC424E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFEF24E72315008B7B25 /* AppDelegate.swift */; };
 		CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF124E72315008B7B25 /* SceneDelegate.swift */; };
 		CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF324E72315008B7B25 /* osmilk.xcdatamodeld */; };
@@ -16,8 +20,6 @@
 		CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */; };
 		CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D00924E7231A008B7B25 /* osmilkTests.swift */; };
 		CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D01424E7231A008B7B25 /* osmilkUITests.swift */; };
-		CC8F313E24E725F9002F20F6 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; };
-		CC8F314024E7261D002F20F6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313F24E7261D002F20F6 /* CoreLocation.framework */; };
 		CC8F314224E72629002F20F6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314124E72629002F20F6 /* libc++.tbd */; };
 		CC8F314424E7263A002F20F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314324E7263A002F20F6 /* libz.tbd */; };
 		CC8F314624E72644002F20F6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314524E72644002F20F6 /* libxml2.tbd */; };
@@ -67,7 +69,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CC43DFC224E86C6E00907200 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CC43DFC424E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2207098CA0B421E63CE4D276 /* Pods-osmilk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.release.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.release.xcconfig"; sourceTree = "<group>"; };
+		25D24816A27E6D77E37C3582 /* Pods-osmilk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.debug.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.debug.xcconfig"; sourceTree = "<group>"; };
+		81A19CBD83BC506B50292676 /* libPods-osmilk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osmilk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC45CFEC24E72315008B7B25 /* osmilk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = osmilk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC45CFEF24E72315008B7B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC45CFF124E72315008B7B25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +124,9 @@
 				CC8F314624E72644002F20F6 /* libxml2.tbd in Frameworks */,
 				CC8F314424E7263A002F20F6 /* libz.tbd in Frameworks */,
 				CC8F314224E72629002F20F6 /* libc++.tbd in Frameworks */,
-				CC8F314024E7261D002F20F6 /* CoreLocation.framework in Frameworks */,
-				CC8F313E24E725F9002F20F6 /* WhirlyGlobeMaplyComponent.framework in Frameworks */,
+				CC43DFC024E86C6E00907200 /* CoreLocation.framework in Frameworks */,
+				0253C47177D6A2C2FF55FD49 /* libPods-osmilk.a in Frameworks */,
+				CC43DFC324E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2658401A9F62C5497EEBA639 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25D24816A27E6D77E37C3582 /* Pods-osmilk.debug.xcconfig */,
+				2207098CA0B421E63CE4D276 /* Pods-osmilk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CC45CFE324E72314008B7B25 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +164,7 @@
 				CC45D01324E7231A008B7B25 /* osmilkUITests */,
 				CC45CFED24E72315008B7B25 /* Products */,
 				CC8F313424E725BA002F20F6 /* Frameworks */,
+				2658401A9F62C5497EEBA639 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +232,7 @@
 				CC8F314124E72629002F20F6 /* libc++.tbd */,
 				CC8F313F24E7261D002F20F6 /* CoreLocation.framework */,
 				CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */,
+				81A19CBD83BC506B50292676 /* libPods-osmilk.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -231,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC45D01924E7231A008B7B25 /* Build configuration list for PBXNativeTarget "osmilk" */;
 			buildPhases = (
+				E2404C6CD3A1936EEB704546 /* [CP] Check Pods Manifest.lock */,
 				CC45CFE824E72314008B7B25 /* Sources */,
 				CC45CFE924E72314008B7B25 /* Frameworks */,
 				CC45CFEA24E72314008B7B25 /* Resources */,
+				CC43DFC224E86C6E00907200 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -375,6 +408,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E2404C6CD3A1936EEB704546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-osmilk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CC45CFE824E72314008B7B25 /* Sources */ = {
@@ -555,6 +613,7 @@
 		};
 		CC45D01A24E7231A008B7B25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25D24816A27E6D77E37C3582 /* Pods-osmilk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -563,10 +622,12 @@
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "/Users/coco/git/osmilk/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/**";
 				INFOPLIST_FILE = osmilk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";
@@ -577,6 +638,7 @@
 		};
 		CC45D01B24E7231A008B7B25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2207098CA0B421E63CE4D276 /* Pods-osmilk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -589,10 +651,12 @@
 					"/Users/coco/git/osmilk/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/**",
 				);
 				INFOPLIST_FILE = osmilk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";

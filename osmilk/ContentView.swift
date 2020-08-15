@@ -19,13 +19,12 @@ struct ContentView: View {
             OsmView()
             
 //            MapView()
-                .frame(height:500)
+                .frame(height:600)
                 .edgesIgnoringSafeArea(.top)
-                .frame(height: 500)
             
-            CircleImage()
-                .offset(y: -130)
-                .padding(.bottom,-130)
+//            CircleImage()
+//                .offset(y: -130)
+//                .padding(.bottom,-130)
             VStack {
                 Text("osmilk")
                     .font(.largeTitle)

@@ -6,35 +6,76 @@
 //  Copyright © 2020 Frederik Heuser. All rights reserved.
 //
 import UIKit
+import MapKit
 import SwiftUI
+import SwiftOverpassAPI
+import CoreLocation
 
 struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
-    
+    private var OsmController = OSMViewController()
     func makeUIViewController(context: Context) ->MaplyViewController {
-        return OSMViewController()
+        return OsmController
     }
     
     func updateUIViewController(_ uiViewController: MaplyViewController, context: Context) {
         
     }
+    public func QueryVendingMachines() {
+       OsmController.QueryVendingMachines()
+    }
+    
     
 }
 
 struct OsmView: View {
     @State private var isPresented = false
-    
+    private var OsmMapView = OsmViewControllerRepresentable()
     var body: some View {
-            OsmViewControllerRepresentable()
+        VStack {
+            OsmMapView
+            
+            Button(action:
+            {
+                self.OsmMapView.QueryVendingMachines()
+            }
+            ) {
+            Text("Refresh")
+            }
+        }
         
     }
 }
 
 class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
     private var theViewC: MaplyBaseViewController?
+    private var boundingBox = OPBoundingBox(
+    minLatitude: 47,
+    minLongitude: 5,
+    maxLatitude: 47.00001,
+    maxLongitude: 5.00001)
+    
     
     func maplyViewController(_ viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
-        let subtitle = NSString(format: "(%.2fN, %.2fE)", coord.y*57.296,coord.x*57.296) as String
-        addAnnotationWithTitle(title: "Tap!", subtitle: subtitle, loc: coord)
+            theViewC?.clearAnnotations()
+    }
+    
+    func maplyViewController(_ viewC: MaplyViewController, didStopMoving corners: UnsafeMutablePointer<MaplyCoordinate>, userMotion: Bool) {
+    
+                
+                
+        boundingBox = OPBoundingBox(
+         minLatitude: Double(corners[2].y * 180 / .pi),
+         minLongitude: Double((corners[0].x * 180 / .pi)),
+         maxLatitude: Double(corners[0].y * 180 / .pi),
+         maxLongitude: Double((corners[1].x * 180 / .pi)))
+        
+        
+        
+        
+        
+        
+    //An array of length 4 containing the corners of the view space (lower left, lower right, upper right, upper left). If any of those corners does not intersect the map (think zoomed out), its values are set to MAXFLOAT.
+        
     }
     
     // Unified method to handle the selection
@@ -49,7 +90,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         }
         else if let selectedObject = selectedObject as? MaplyScreenMarker {
             let title = "Selected:"
-            let subtitle = "Screen Marker"
+            let subtitle = "Screen Marker" + selectedObject.uniqueID!
             addAnnotationWithTitle(title: title, subtitle: subtitle, loc: selectedObject.loc)
         }
     }
@@ -59,34 +100,96 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         handleSelection(selectedObject: selectedObj)
     }
     
-    private func addMilk() {
-        let capitals = [
-            MaplyCoordinateMakeWithDegrees(-122.4192,37.7793),
-            MaplyCoordinateMakeWithDegrees(-77.036667, 38.895111),
-            MaplyCoordinateMakeWithDegrees(120.966667, 14.583333),
-            MaplyCoordinateMakeWithDegrees(55.75, 37.616667),
-            MaplyCoordinateMakeWithDegrees(-0.1275, 51.507222),
-            MaplyCoordinateMakeWithDegrees(-66.916667, 10.5),
-            MaplyCoordinateMakeWithDegrees(139.6917, 35.689506),
-            MaplyCoordinateMakeWithDegrees(166.666667, -77.85),
-            MaplyCoordinateMakeWithDegrees(-58.383333, -34.6),
-            MaplyCoordinateMakeWithDegrees(-74.075833, 4.598056),
-            MaplyCoordinateMakeWithDegrees(-79.516667, 8.983333),
-            MaplyCoordinateMakeWithDegrees(-5.7043173, 40.9634332)
-        ]
+    
+    private var overpassClient: OPClient? // The client for requesting/decoding Overpass data
+    private var MilkBottles = [MaplyCoordinate]()
+    
+    public func QueryVendingMachines() {
 
-        let icon = UIImage(named: "Milk.png")
+      
+        debugPrint("TEST")
+        
+        do {
+            let query = try OPQueryBuilder()
+                .setTimeOut(180) //1
+                .setElementTypes([.node]) //2
+                .addTagFilter(key: "amenity", value: "vending_machine", exactMatch: false) //3
+                .addTagFilter(key: "vending", value: "milk", exactMatch: false) //4
+                .setBoundingBox(boundingBox) //6
+                .setOutputType(.center) //7
+                .buildQueryString() //8
+                
+            
+            overpassClient = OPClient()
+            //1
+            overpassClient!.endpoint = .main//2
+            debugPrint("Start Fetching")
+            //3
+            overpassClient?.fetchElements(query: query) { result in
+                debugPrint("Finished Fetch")
+                debugPrint(result)
+                switch result {
+                    case .failure(let error):
+                        debugPrint("Error")
+                        debugPrint(error.localizedDescription)
+                    case .success(let elements):
+                        debugPrint("Success")
+                        debugPrint(elements.count)
+                        
+                        for element in elements {
+                            debugPrint(element.key)
+                            debugPrint(element.value.geometry)
+                            switch element.value.geometry {
+                            case .center(let coordinate):
+                                let Lat = Float(coordinate.latitude)
+                                let Lon = Float(coordinate.longitude)
+                                self.MilkBottles.append(MaplyCoordinateMakeWithDegrees(Lon,Lat))
+                            case .polyline(_):
+                                break
+                            case .polygon(_):
+                                break
+                            case .multiPolygon(_):
+                                break
+                            case .multiPolyline(_):
+                                break
+                            case .none:
+                                break
+                            }
+                        }
+                    // Now let's add some milkbottles
+                    let icon = UIImage(named: "Milk.png")
 
-        let markers = capitals.map { cap -> MaplyScreenMarker in
-            let marker = MaplyScreenMarker()
-            marker.image = icon
-            marker.loc = cap
-            marker.size = CGSize(width: 40,height: 40)
-            return marker
+                        var i = 0;
+                        let markers = self.MilkBottles.map { cap -> MaplyScreenMarker in
+                        let marker = MaplyScreenMarker()
+                        marker.image = icon
+                        marker.loc = cap
+                        marker.size = CGSize(width: 40,height: 40)
+                        
+                        marker.uniqueID = String(i)
+                        
+                            
+                        i+=1
+                        return marker
+                    }
+
+                        self.theViewC?.addScreenMarkers(markers, desc: nil)
+                    
+                    
+                }
+            }
+            
+            debugPrint("After Fetch")
+        } catch {
+            debugPrint("Fehler")
+            debugPrint(error.localizedDescription)
         }
-
-        theViewC?.addScreenMarkers(markers, desc: nil)
+        debugPrint("Ende")
+        
     }
+        
+    
+    
     
     private func addAnnotationWithTitle(title: String, subtitle: String, loc:MaplyCoordinate) {
         theViewC?.clearAnnotations()
@@ -94,7 +197,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         let a = MaplyAnnotation()
         a.title = title
         a.subTitle = subtitle
-
+        
         theViewC?.addAnnotation(a, forPoint: loc, offset: CGPoint.zero)
     }
     
@@ -116,39 +219,29 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         // and thirty fps if we can get it ­ change this to 3 if you find your app is struggling
         theViewC!.frameInterval = 2
 
-        
-        // add the capability to use the local tiles or remote tiles
-        let useLocalTiles = false
-
         // we'll need this layer in a second
         let layer: MaplyQuadImageTilesLayer
 
-        if useLocalTiles {
-            guard let tileSource = MaplyMBTileSource(mbTiles: "geography-class_medres") else {
-                // can't load local tile set
-            }
-            layer = MaplyQuadImageTilesLayer(tileSource: tileSource)!
-        }
-        else {
-            // Because this is a remote tile set, we'll want a cache directory
-            let baseCacheDir = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
-            let tilesCacheDir = "\(baseCacheDir)/stamentiles/"
-            let maxZoom = Int32(18)
 
-            // Stamen Terrain Tiles, courtesy of Stamen Design under the Creative Commons Attribution License.
-            // Data by OpenStreetMap under the Open Data Commons Open Database License.
-            guard let tileSource = MaplyRemoteTileSource(
-                    baseURL: "http://tile.stamen.com/terrain/",
-                    ext: "png",
-                    minZoom: 0,
-                    maxZoom: maxZoom) else {
-                // can't create remote tile source
-                return
-            }
-            tileSource.cacheDir = tilesCacheDir
-            layer = MaplyQuadImageTilesLayer(tileSource: tileSource)!
-            theViewC!.add(layer)
+        // Because this is a remote tile set, we'll want a cache directory
+        let baseCacheDir = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
+        let tilesCacheDir = "\(baseCacheDir)/stamentiles/"
+        let maxZoom = Int32(18)
+
+        // Stamen Terrain Tiles, courtesy of Stamen Design under the Creative Commons Attribution License.
+        // Data by OpenStreetMap under the Open Data Commons Open Database License.
+        guard let tileSource = MaplyRemoteTileSource(
+                baseURL: "http://tile.stamen.com/terrain/",
+                ext: "png",
+                minZoom: 0,
+                maxZoom: maxZoom) else {
+            // can't create remote tile source
+            return
         }
+        tileSource.cacheDir = tilesCacheDir
+        layer = MaplyQuadImageTilesLayer(tileSource: tileSource)!
+        theViewC!.add(layer)
+        
         
     
 
@@ -158,11 +251,13 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
             globeViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(-3.6704803, 40.5023056), time: 1.0)
         }
         else if let mapViewC = mapViewC {
-            mapViewC.height = 1.0
-            mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(-3.6704803, 40.5023056), time: 1.0)
+            mapViewC.height = 0.001
+            mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(11.266090, 49.625349), time: 1.0)
         }
-          
-        addMilk()
+        // 49.625349, 11.266090
+       
+        
+        QueryVendingMachines()
         
         if let mapViewC = mapViewC {
             mapViewC.delegate = self
