@@ -16,6 +16,15 @@
 		CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */; };
 		CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D00924E7231A008B7B25 /* osmilkTests.swift */; };
 		CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D01424E7231A008B7B25 /* osmilkUITests.swift */; };
+		CC8F313E24E725F9002F20F6 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; };
+		CC8F314024E7261D002F20F6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313F24E7261D002F20F6 /* CoreLocation.framework */; };
+		CC8F314224E72629002F20F6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314124E72629002F20F6 /* libc++.tbd */; };
+		CC8F314424E7263A002F20F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314324E7263A002F20F6 /* libz.tbd */; };
+		CC8F314624E72644002F20F6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314524E72644002F20F6 /* libxml2.tbd */; };
+		CC8F314824E7264D002F20F6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314724E7264D002F20F6 /* libsqlite3.tbd */; };
+		CCA48D3524E7D7DE0093CBF6 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */; };
+		CCA48D3724E7DB760093CBF6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3624E7DB760093CBF6 /* MapView.swift */; };
+		CCA48D3924E7DFEC0093CBF6 /* OSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +42,27 @@
 			remoteGlobalIDString = CC45CFEB24E72314008B7B25;
 			remoteInfo = osmilk;
 		};
+		CC8F313A24E725BA002F20F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BE536FF1D2499E500B60FAD;
+			remoteInfo = WhirlyGlobeMaplyComponent;
+		};
+		CC8F313C24E725BA002F20F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BE537091D2499E500B60FAD;
+			remoteInfo = WhirlyGlobeMaplyComponentTests;
+		};
+		CCA48D3224E7369A0093CBF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BE536FE1D2499E500B60FAD;
+			remoteInfo = WhirlyGlobeMaplyComponent;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +70,7 @@
 		CC45CFEF24E72315008B7B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC45CFF124E72315008B7B25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CC45CFF424E72315008B7B25 /* osmilk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = osmilk.xcdatamodel; sourceTree = "<group>"; };
-		CC45CFF624E72315008B7B25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC45CFF624E72315008B7B25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		CC45CFF824E7231A008B7B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC45CFFB24E7231A008B7B25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC45CFFE24E7231A008B7B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +81,15 @@
 		CC45D01024E7231A008B7B25 /* osmilkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = osmilkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC45D01424E7231A008B7B25 /* osmilkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osmilkUITests.swift; sourceTree = "<group>"; };
 		CC45D01624E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhirlyGlobeMaplyComponent.xcodeproj; path = "libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/WhirlyGlobeMaplyComponent.xcodeproj"; sourceTree = "<group>"; };
+		CC8F313F24E7261D002F20F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC8F314124E72629002F20F6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CC8F314324E7263A002F20F6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CC8F314524E72644002F20F6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		CC8F314724E7264D002F20F6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		CCA48D3624E7DB760093CBF6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +97,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8F314824E7264D002F20F6 /* libsqlite3.tbd in Frameworks */,
+				CC8F314624E72644002F20F6 /* libxml2.tbd in Frameworks */,
+				CC8F314424E7263A002F20F6 /* libz.tbd in Frameworks */,
+				CC8F314224E72629002F20F6 /* libc++.tbd in Frameworks */,
+				CC8F314024E7261D002F20F6 /* CoreLocation.framework in Frameworks */,
+				CC8F313E24E725F9002F20F6 /* WhirlyGlobeMaplyComponent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +130,7 @@
 				CC45D00824E7231A008B7B25 /* osmilkTests */,
 				CC45D01324E7231A008B7B25 /* osmilkUITests */,
 				CC45CFED24E72315008B7B25 /* Products */,
+				CC8F313424E725BA002F20F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +147,11 @@
 		CC45CFEE24E72315008B7B25 /* osmilk */ = {
 			isa = PBXGroup;
 			children = (
+				CCA48D3624E7DB760093CBF6 /* MapView.swift */,
+				CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */,
 				CC45CFEF24E72315008B7B25 /* AppDelegate.swift */,
 				CC45CFF124E72315008B7B25 /* SceneDelegate.swift */,
+				CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */,
 				CC45CFF624E72315008B7B25 /* ContentView.swift */,
 				CC45CFF824E7231A008B7B25 /* Assets.xcassets */,
 				CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */,
@@ -139,6 +188,28 @@
 			path = osmilkUITests;
 			sourceTree = "<group>";
 		};
+		CC8F313424E725BA002F20F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F314724E7264D002F20F6 /* libsqlite3.tbd */,
+				CC8F314524E72644002F20F6 /* libxml2.tbd */,
+				CC8F314324E7263A002F20F6 /* libz.tbd */,
+				CC8F314124E72629002F20F6 /* libc++.tbd */,
+				CC8F313F24E7261D002F20F6 /* CoreLocation.framework */,
+				CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC8F313624E725BA002F20F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */,
+				CC8F313D24E725BA002F20F6 /* WhirlyGlobeMaplyComponentTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +224,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CCA48D3324E7369A0093CBF6 /* PBXTargetDependency */,
 			);
 			name = osmilk;
 			productName = osmilk;
@@ -229,6 +301,12 @@
 			mainGroup = CC45CFE324E72314008B7B25;
 			productRefGroup = CC45CFED24E72315008B7B25 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CC8F313624E725BA002F20F6 /* Products */;
+					ProjectRef = CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CC45CFEB24E72314008B7B25 /* osmilk */,
@@ -237,6 +315,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WhirlyGlobeMaplyComponent.framework;
+			remoteRef = CC8F313A24E725BA002F20F6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CC8F313D24E725BA002F20F6 /* WhirlyGlobeMaplyComponentTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WhirlyGlobeMaplyComponentTests.xctest;
+			remoteRef = CC8F313C24E725BA002F20F6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CC45CFEA24E72314008B7B25 /* Resources */ = {
@@ -271,9 +366,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */,
+				CCA48D3724E7DB760093CBF6 /* MapView.swift in Sources */,
 				CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */,
 				CC45CFF724E72315008B7B25 /* ContentView.swift in Sources */,
 				CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */,
+				CCA48D3924E7DFEC0093CBF6 /* OSMViewController.swift in Sources */,
+				CCA48D3524E7D7DE0093CBF6 /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +403,11 @@
 			isa = PBXTargetDependency;
 			target = CC45CFEB24E72314008B7B25 /* osmilk */;
 			targetProxy = CC45D01124E7231A008B7B25 /* PBXContainerItemProxy */;
+		};
+		CCA48D3324E7369A0093CBF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WhirlyGlobeMaplyComponent;
+			targetProxy = CCA48D3224E7369A0093CBF6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -442,6 +545,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"osmilk/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DNN8PU365;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "/Users/coco/git/osmilk/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/**";
 				INFOPLIST_FILE = osmilk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,6 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,6 +567,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"osmilk/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DNN8PU365;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"/Users/coco/git/osmilk/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/**",
+				);
 				INFOPLIST_FILE = osmilk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,6 +579,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

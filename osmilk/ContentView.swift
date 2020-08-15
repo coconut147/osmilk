@@ -6,11 +6,43 @@
 //  Copyright © 2020 Frederik Heuser. All rights reserved.
 //
 
+
+
 import SwiftUI
+import WhirlyGlobeMaplyComponent
 
 struct ContentView: View {
+  
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            
+            OsmView()
+            
+            MapView()
+                .frame(height:300)
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: 300)
+            
+            CircleImage()
+                .offset(y: -130)
+                .padding(.bottom,-130)
+            VStack {
+                Text("osmilk")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                HStack {
+                    Text("Best app you've ever seen")
+                        .font(.subheadline)
+                    Spacer()
+                    Text("Milkaway")
+                        .font(.subheadline)
+                }
+            .padding()
+                
+            Spacer()
+            }
+        }
     }
 }
 
@@ -19,3 +51,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
+
+
