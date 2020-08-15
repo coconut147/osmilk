@@ -19,9 +19,9 @@ struct ContentView: View {
             OsmView()
             
 //            MapView()
-                .frame(height:300)
+                .frame(height:500)
                 .edgesIgnoringSafeArea(.top)
-                .frame(height: 300)
+                .frame(height: 500)
             
             CircleImage()
                 .offset(y: -130)
