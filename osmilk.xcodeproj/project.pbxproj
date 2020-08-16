@@ -11,6 +11,11 @@
 		CC43DFC024E86C6E00907200 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313F24E7261D002F20F6 /* CoreLocation.framework */; };
 		CC43DFC324E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; };
 		CC43DFC424E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CC43DFC624E9C36400907200 /* MilkBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43DFC524E9C36300907200 /* MilkBottle.swift */; };
+		CC43DFC824E9C4A300907200 /* MilkBottleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43DFC724E9C4A300907200 /* MilkBottleTest.swift */; };
+		CC43DFCA24E9C5A200907200 /* osmilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43DFC924E9C5A200907200 /* osmilkTests.swift */; };
+		CC43DFCC24E9C5C000907200 /* osmilkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43DFCB24E9C5C000907200 /* osmilkUITests.swift */; };
+		CC43DFCD24E9C7DC00907200 /* MilkBottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC43DFC524E9C36300907200 /* MilkBottle.swift */; };
 		CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFEF24E72315008B7B25 /* AppDelegate.swift */; };
 		CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF124E72315008B7B25 /* SceneDelegate.swift */; };
 		CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC45CFF324E72315008B7B25 /* osmilk.xcdatamodeld */; };
@@ -18,8 +23,6 @@
 		CC45CFF924E7231A008B7B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFF824E7231A008B7B25 /* Assets.xcassets */; };
 		CC45CFFC24E7231A008B7B25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFB24E7231A008B7B25 /* Preview Assets.xcassets */; };
 		CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC45CFFD24E7231A008B7B25 /* LaunchScreen.storyboard */; };
-		CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D00924E7231A008B7B25 /* osmilkTests.swift */; };
-		CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC45D01424E7231A008B7B25 /* osmilkUITests.swift */; };
 		CC8F314224E72629002F20F6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314124E72629002F20F6 /* libc++.tbd */; };
 		CC8F314424E7263A002F20F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314324E7263A002F20F6 /* libz.tbd */; };
 		CC8F314624E72644002F20F6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F314524E72644002F20F6 /* libxml2.tbd */; };
@@ -87,6 +90,10 @@
 		2207098CA0B421E63CE4D276 /* Pods-osmilk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.release.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.release.xcconfig"; sourceTree = "<group>"; };
 		25D24816A27E6D77E37C3582 /* Pods-osmilk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.debug.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.debug.xcconfig"; sourceTree = "<group>"; };
 		81A19CBD83BC506B50292676 /* libPods-osmilk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osmilk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC43DFC524E9C36300907200 /* MilkBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MilkBottle.swift; path = osmilk/MilkBottle.swift; sourceTree = SOURCE_ROOT; };
+		CC43DFC724E9C4A300907200 /* MilkBottleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkBottleTest.swift; sourceTree = "<group>"; };
+		CC43DFC924E9C5A200907200 /* osmilkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = osmilkTests.swift; sourceTree = "<group>"; };
+		CC43DFCB24E9C5C000907200 /* osmilkUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = osmilkUITests.swift; sourceTree = "<group>"; };
 		CC45CFEC24E72315008B7B25 /* osmilk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = osmilk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC45CFEF24E72315008B7B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC45CFF124E72315008B7B25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,10 +104,8 @@
 		CC45CFFE24E7231A008B7B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC45D00024E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC45D00524E7231A008B7B25 /* osmilkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = osmilkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC45D00924E7231A008B7B25 /* osmilkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osmilkTests.swift; sourceTree = "<group>"; };
 		CC45D00B24E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC45D01024E7231A008B7B25 /* osmilkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = osmilkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC45D01424E7231A008B7B25 /* osmilkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osmilkUITests.swift; sourceTree = "<group>"; };
 		CC45D01624E7231A008B7B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8F313524E725BA002F20F6 /* WhirlyGlobeMaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhirlyGlobeMaplyComponent.xcodeproj; path = "libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/WhirlyGlobeMaplyComponent.xcodeproj"; sourceTree = "<group>"; };
 		CC8F313F24E7261D002F20F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -183,6 +188,7 @@
 			children = (
 				CCA48D3A24E804440093CBF6 /* Resources */,
 				CCA48D3624E7DB760093CBF6 /* MapView.swift */,
+				CC43DFC524E9C36300907200 /* MilkBottle.swift */,
 				CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */,
 				CC45CFEF24E72315008B7B25 /* AppDelegate.swift */,
 				CC45CFF124E72315008B7B25 /* SceneDelegate.swift */,
@@ -208,8 +214,9 @@
 		CC45D00824E7231A008B7B25 /* osmilkTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC45D00924E7231A008B7B25 /* osmilkTests.swift */,
+				CC43DFC924E9C5A200907200 /* osmilkTests.swift */,
 				CC45D00B24E7231A008B7B25 /* Info.plist */,
+				CC43DFC724E9C4A300907200 /* MilkBottleTest.swift */,
 			);
 			path = osmilkTests;
 			sourceTree = "<group>";
@@ -217,7 +224,7 @@
 		CC45D01324E7231A008B7B25 /* osmilkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CC45D01424E7231A008B7B25 /* osmilkUITests.swift */,
+				CC43DFCB24E9C5C000907200 /* osmilkUITests.swift */,
 				CC45D01624E7231A008B7B25 /* Info.plist */,
 			);
 			path = osmilkUITests;
@@ -333,6 +340,7 @@
 					};
 					CC45D00F24E7231A008B7B25 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 						TestTargetID = CC45CFEB24E72314008B7B25;
 					};
 				};
@@ -441,6 +449,7 @@
 			files = (
 				CC45CFF024E72315008B7B25 /* AppDelegate.swift in Sources */,
 				CCA48D3724E7DB760093CBF6 /* MapView.swift in Sources */,
+				CC43DFC624E9C36400907200 /* MilkBottle.swift in Sources */,
 				CC45CFF224E72315008B7B25 /* SceneDelegate.swift in Sources */,
 				CC45CFF724E72315008B7B25 /* ContentView.swift in Sources */,
 				CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */,
@@ -453,7 +462,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC45D00A24E7231A008B7B25 /* osmilkTests.swift in Sources */,
+				CC43DFCD24E9C7DC00907200 /* MilkBottle.swift in Sources */,
+				CC43DFCA24E9C5A200907200 /* osmilkTests.swift in Sources */,
+				CC43DFC824E9C4A300907200 /* MilkBottleTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC45D01524E7231A008B7B25 /* osmilkUITests.swift in Sources */,
+				CC43DFCC24E9C5C000907200 /* osmilkUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +724,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DNN8PU365;
 				INFOPLIST_FILE = osmilkUITests/Info.plist;
@@ -723,6 +735,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.resueh.osmilkUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = osmilk;
@@ -733,6 +746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4DNN8PU365;
 				INFOPLIST_FILE = osmilkUITests/Info.plist;

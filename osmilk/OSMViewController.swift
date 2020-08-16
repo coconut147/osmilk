@@ -11,6 +11,7 @@ import SwiftUI
 import SwiftOverpassAPI
 import CoreLocation
 
+
 struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
     private var OsmController = OSMViewController()
     func makeUIViewController(context: Context) ->MaplyViewController {
@@ -30,20 +31,45 @@ struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
 struct OsmView: View {
     @State private var isPresented = false
     private var OsmMapView = OsmViewControllerRepresentable()
+    private var TextName = Text("Milchhäusla")
+    private var TextVending = Text("🥛🥓🍗🍯🧀🥚🥔")
+    private var TextID = Text("00420815")
+
     var body: some View {
         VStack {
             OsmMapView
             
-            Button(action:
-            {
-                self.OsmMapView.QueryVendingMachines()
+            
+            HStack {
+                Spacer()
+                Button(action:
+                {
+                    self.OsmMapView.QueryVendingMachines()
+                }
+                ) {
+                        Text("Refresh  ")
+                }
             }
-            ) {
-            Text("Refresh")
+            HStack {
+                    Text("Name:")
+                    TextName
+                    Spacer()
+                }
+                HStack {
+                    Text("Vending:")
+                    TextVending
+                    Spacer()
+                }
+                HStack {
+                    Text("ID:")
+                    TextID
+                    Spacer()
             }
         }
-        
     }
+        
+        
+    
 }
 
 class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
@@ -68,30 +94,38 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
          minLongitude: Double((corners[0].x * 180 / .pi)),
          maxLatitude: Double(corners[0].y * 180 / .pi),
          maxLongitude: Double((corners[1].x * 180 / .pi)))
-        
-        
-        
-        
-        
-        
-    //An array of length 4 containing the corners of the view space (lower left, lower right, upper right, upper left). If any of those corners does not intersect the map (think zoomed out), its values are set to MAXFLOAT.
-        
+            
+        //An array of length 4 containing the corners of the view space (lower left, lower right, upper right, upper left). If any of those corners does not intersect the map (think zoomed out), its values are set to MAXFLOAT.
+
     }
     
-    // Unified method to handle the selection
+    
+    
+    
+    /*
+     *  Handle a tap on a milkbottle
+    */
     private func handleSelection(selectedObject: NSObject) {
-        if let selectedObject = selectedObject as? MaplyVectorObject {
-            let loc = selectedObject.centroid()
-            if loc.x != kMaplyNullCoordinate.x {
-                let title = "Selected:"
-                let subtitle = selectedObject.userObject as! String
-                addAnnotationWithTitle(title: title, subtitle: subtitle, loc: loc)
+        if let selectedObject = selectedObject as? MaplyScreenMarker {
+            var selectedBottle = MilkBottle()
+            for bottle in MilkBottles {
+                if(bottle.identifier == selectedObject.uniqueID) {
+                    selectedBottle = bottle
+                    break;
+                }
             }
-        }
-        else if let selectedObject = selectedObject as? MaplyScreenMarker {
-            let title = "Selected:"
-            let subtitle = "Screen Marker" + selectedObject.uniqueID!
+            
+            let title = selectedBottle.getTitle()
+
+            let subtitle = selectedBottle.getEmojitizedVending()
+            
+            
+            
             addAnnotationWithTitle(title: title, subtitle: subtitle, loc: selectedObject.loc)
+            
+            // Now Update detailview
+            
+            
         }
     }
       
@@ -99,16 +133,14 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
     func maplyViewController(_ viewC: MaplyViewController, didSelect selectedObj: NSObject) {
         handleSelection(selectedObject: selectedObj)
     }
-    
+
     
     private var overpassClient: OPClient? // The client for requesting/decoding Overpass data
-    private var MilkBottles = [MaplyCoordinate]()
+    private var MilkBottles = [MilkBottle]()
     
     public func QueryVendingMachines() {
-
-      
-        debugPrint("TEST")
         
+        MilkBottles.removeAll()
         do {
             let query = try OPQueryBuilder()
                 .setTimeOut(180) //1
@@ -123,7 +155,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
             overpassClient = OPClient()
             //1
             overpassClient!.endpoint = .main//2
-            debugPrint("Start Fetching")
+            debugPrint("Start Fetching with Overpass API")
             //3
             overpassClient?.fetchElements(query: query) { result in
                 debugPrint("Finished Fetch")
@@ -133,17 +165,19 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
                         debugPrint("Error")
                         debugPrint(error.localizedDescription)
                     case .success(let elements):
-                        debugPrint("Success")
-                        debugPrint(elements.count)
-                        
+                        debugPrint("Found " + String(elements.count) + " vending machines")
+
                         for element in elements {
-                            debugPrint(element.key)
-                            debugPrint(element.value.geometry)
+                            var newMilkBottle = MilkBottle()
+                            
+                            debugPrint("Examining element " + String(element.value.id) )
+                            
+                            // Save Coordinates
                             switch element.value.geometry {
                             case .center(let coordinate):
                                 let Lat = Float(coordinate.latitude)
                                 let Lon = Float(coordinate.longitude)
-                                self.MilkBottles.append(MaplyCoordinateMakeWithDegrees(Lon,Lat))
+                                newMilkBottle.coordinate = MaplyCoordinateMakeWithDegrees(Lon,Lat);
                             case .polyline(_):
                                 break
                             case .polygon(_):
@@ -155,21 +189,52 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
                             case .none:
                                 break
                             }
+                            
+                            // ID
+                            newMilkBottle.identifier = String(element.value.id);
+
+                            // Now let's examine interesting tags
+                            for tag in element.value.tags {
+                                switch tag.key {
+                                case "name":
+                                    newMilkBottle.name = tag.value
+                                case "operator":
+                                    newMilkBottle.owner = tag.value
+                                case "vending":
+                                    newMilkBottle.vending = tag.value
+                                case "website":
+                                    newMilkBottle.website = tag.value
+                                case "contact:website":
+                                    if(newMilkBottle.website == "") {
+                                        newMilkBottle.website = tag.value
+                                    }
+                                case "description":
+                                    newMilkBottle.description = tag.value
+                                case "opening_hours":
+                                    newMilkBottle.opening_hours = tag.value
+                                default:
+                                    debugPrint(tag.key + "=" + tag.value)
+                                }
+                            }
+                            
+                            
+                            // Add to list
+                            self.MilkBottles.append(newMilkBottle)
+
+                            
+                            
                         }
                     // Now let's add some milkbottles
                     let icon = UIImage(named: "Milk.png")
 
-                        var i = 0;
-                        let markers = self.MilkBottles.map { cap -> MaplyScreenMarker in
+                        let markers = self.MilkBottles.map { Bottle -> MaplyScreenMarker in
                         let marker = MaplyScreenMarker()
                         marker.image = icon
-                        marker.loc = cap
+                        marker.loc = Bottle.coordinate
                         marker.size = CGSize(width: 40,height: 40)
                         
-                        marker.uniqueID = String(i)
+                        marker.uniqueID = Bottle.identifier
                         
-                            
-                        i+=1
                         return marker
                     }
 
@@ -179,12 +244,12 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
                 }
             }
             
-            debugPrint("After Fetch")
+
         } catch {
-            debugPrint("Fehler")
+
             debugPrint(error.localizedDescription)
         }
-        debugPrint("Ende")
+
         
     }
         
