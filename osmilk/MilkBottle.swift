@@ -18,7 +18,34 @@ struct MilkBottle {
     var vending = String()
     var website = String()
     var imageURL = String()
-    var opening_hours = String()
+    var openingHours = String()
+    var rawTags = [String: String]() //key: value
+    
+    mutating func addTag(key: String,value: String){
+        rawTags[key] = value
+
+        switch key {
+            case "name":
+                name = value
+            case "operator":
+                owner = value
+            case "vending":
+                vending = MilkBottle.emojitizeVending(vending: value)
+            case "website":
+                website = value
+            case "contact:website":
+                if(website == "") {
+                    website = value
+                }
+            case "description":
+                description = value
+            case "opening_hours":
+                openingHours = value
+            default:
+                break
+        }
+        
+    }
     
     func getTitle() -> String {
         if name != "" {
@@ -40,18 +67,39 @@ struct MilkBottle {
     
     static func emojitizeVending(vending: String) -> String {
         var emojitizedString = String("");
-        
-        if vending.contains("milk") {
+        let lowercased = vending.lowercased()
+        if lowercased.contains("milk") {
             emojitizedString += "🥛"
         }
-        if vending.contains("Milk") {
-            emojitizedString += "🥛"
-        }
-        if vending.contains("potato") {
+        if lowercased.contains("potato") {
             emojitizedString += "🥔"
         }
-        if vending.contains("Potato") {
-            emojitizedString += "🥔"
+        if lowercased.contains("apple") {
+            emojitizedString += "🍎"
+        }
+        if lowercased.contains("butter") {
+            emojitizedString += "🧈"
+        }
+        if lowercased.contains("food") {
+            emojitizedString += "🍽"
+        }
+        if lowercased.contains("jam") {
+            emojitizedString += "🍓"
+        }
+        if lowercased.contains("honey") {
+            emojitizedString += "🍯"
+        }
+        if lowercased.contains("meat") {
+            emojitizedString += "🥩"
+        }
+        if lowercased.contains("egg") {
+            emojitizedString += "🥚"
+        }
+        if lowercased.contains("cheese") {
+            emojitizedString += "🧀"
+        }
+        if lowercased.contains("sausage") {
+            emojitizedString += "🥓"
         }
         return emojitizedString
     }

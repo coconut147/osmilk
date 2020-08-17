@@ -211,7 +211,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
                                 case "description":
                                     newMilkBottle.description = tag.value
                                 case "opening_hours":
-                                    newMilkBottle.opening_hours = tag.value
+                                    newMilkBottle.openingHours = tag.value
                                 default:
                                     debugPrint(tag.key + "=" + tag.value)
                                 }
