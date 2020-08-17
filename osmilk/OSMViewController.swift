@@ -195,26 +195,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
 
                             // Now let's examine interesting tags
                             for tag in element.value.tags {
-                                switch tag.key {
-                                case "name":
-                                    newMilkBottle.name = tag.value
-                                case "operator":
-                                    newMilkBottle.owner = tag.value
-                                case "vending":
-                                    newMilkBottle.vending = tag.value
-                                case "website":
-                                    newMilkBottle.website = tag.value
-                                case "contact:website":
-                                    if(newMilkBottle.website == "") {
-                                        newMilkBottle.website = tag.value
-                                    }
-                                case "description":
-                                    newMilkBottle.description = tag.value
-                                case "opening_hours":
-                                    newMilkBottle.openingHours = tag.value
-                                default:
-                                    debugPrint(tag.key + "=" + tag.value)
-                                }
+                                newMilkBottle.addTag(key: tag.key, value: tag.value)
                             }
                             
                             
