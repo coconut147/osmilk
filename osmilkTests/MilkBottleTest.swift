@@ -75,7 +75,7 @@ class MilkBottleTagHandlingTest: XCTestCase {
         let value = String("milk,cheese,food,sausage,eggs")
         var testCandidate = MilkBottle()
         testCandidate.addTag(key: key, value: value)
-        XCTAssertEqual(testCandidate.vending,MilkBottle.emojitizeVending(vending: value))
+        XCTAssertEqual(testCandidate.getEmojitizedVending(),MilkBottle.emojitizeVending(vending: value))
     }
     func testRetrieveTags() throws {
         var testCandidate = MilkBottle()

@@ -30,7 +30,7 @@ struct MilkBottle {
             case "operator":
                 owner = value
             case "vending":
-                vending = MilkBottle.emojitizeVending(vending: value)
+                vending = value
             case "website":
                 website = value
             case "contact:website":
