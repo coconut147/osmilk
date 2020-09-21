@@ -12,11 +12,12 @@ import SwiftUI
 import WhirlyGlobeMaplyComponent
 
 struct ContentView: View {
-  
+    @State public var showingDetails = false
     var body: some View {
         VStack {
-            
-            OsmView()
+
+
+            OsmView(showingDetails: $showingDetails, osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
             
 //            MapView()
                 .frame(height:600)

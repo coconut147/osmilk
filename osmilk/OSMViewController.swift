@@ -12,34 +12,26 @@ import SwiftOverpassAPI
 import CoreLocation
 
 
-struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
-    private var OsmController = OSMViewController()
-    func makeUIViewController(context: Context) ->MaplyViewController {
-        return OsmController
-    }
-    
-    func updateUIViewController(_ uiViewController: MaplyViewController, context: Context) {
-        
-    }
-    public func QueryVendingMachines() {
-       OsmController.QueryVendingMachines()
-    }
-    
-    
-}
 
 struct OsmView: View {
-    @State private var isPresented = false
-    private var OsmMapView = OsmViewControllerRepresentable()
-    private var TextName = Text("Milchhäusla")
-    private var TextVending = Text("🥛🥓🍗🍯🧀🥚🥔")
-    private var TextID = Text("00420815")
-
-    var body: some View {
+   
+    @Binding public var showingDetails: Bool
+    private var OsmMapView : OsmViewControllerRepresentable
+    
+    public init(showingDetails: Binding<Bool>, osmapview: OsmViewControllerRepresentable) {
+        self.OsmMapView = osmapview
+        self._showingDetails = showingDetails
+        GlobalDetailCoordinator = DetailCoordinator(showingDetails: showingDetails, selectedBottle: MilkBottle())
+    }
+    
+    private func getMilkBottle() -> MilkBottle{
+        return GlobalDetailCoordinator.selectedBottle
+    }
+    
+    public var body: some View {
         VStack {
             OsmMapView
-            
-            
+
             HStack {
                 Spacer()
                 Button(action:
@@ -50,40 +42,78 @@ struct OsmView: View {
                         Text("Refresh  ")
                 }
             }
-            HStack {
-                    Text("Name:")
-                    TextName
-                    Spacer()
-                }
-                HStack {
-                    Text("Vending:")
-                    TextVending
-                    Spacer()
-                }
-                HStack {
-                    Text("ID:")
-                    TextID
-                    Spacer()
+            .sheet(isPresented: GlobalDetailCoordinator.$showingDetails) {
+                MilkBottleDetailView(bottle: GlobalDetailCoordinator.selectedBottle)
             }
         }
     }
-        
-        
-    
 }
 
+struct DetailCoordinator {
+     @Binding var showingDetails: Bool
+     public var selectedBottle: MilkBottle
+}
+
+var GlobalDetailCoordinator = DetailCoordinator(showingDetails: .constant(false),  selectedBottle: MilkBottle())
+
+
+
+
+struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
+
+    private var OsmController : OSMViewController
+    
+    init(osmController: OSMViewController) {
+        self.OsmController = osmController
+    }
+    
+    func makeUIViewController(context: Context) ->MaplyViewController {
+        return OsmController
+    }
+    
+    func updateUIViewController(_ uiViewController: MaplyViewController, context: Context) {
+        
+    }
+    public func QueryVendingMachines() {
+       OsmController.QueryVendingMachines()
+    }
+}
+
+
+
 class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
+
+    @Binding var showingDetails: Bool
+    
+    init(showingDetails: Binding<Bool>) {
+        self._showingDetails = showingDetails
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        self._showingDetails = .constant(true)
+        super.init(coder: coder)
+    }
+
+   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+       self._showingDetails = .constant(false)
+       super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+   }
+    
+    
     private var theViewC: MaplyBaseViewController?
     private var boundingBox = OPBoundingBox(
     minLatitude: 47,
     minLongitude: 5,
     maxLatitude: 47.00001,
     maxLongitude: 5.00001)
-    
+    public var selectedMilkBottle = MilkBottle()
     
     func maplyViewController(_ viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
             theViewC?.clearAnnotations()
     }
+    
+    
     
     func maplyViewController(_ viewC: MaplyViewController, didStopMoving corners: UnsafeMutablePointer<MaplyCoordinate>, userMotion: Bool) {
     
@@ -123,8 +153,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
             
             addAnnotationWithTitle(title: title, subtitle: subtitle, loc: selectedObject.loc)
             
-            // Now Update detailview
-            
+            self.selectedMilkBottle = selectedBottle
             
         }
     }
@@ -234,16 +263,38 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         
     }
         
+    func maplyViewController(_ viewC: MaplyViewController, didTap annotation: MaplyAnnotation) {
+        var found = false
+        var selectedBottle = MilkBottle()
+        for bottle in MilkBottles{
+            if(annotation.loc.x == bottle.coordinate.x &&
+               annotation.loc.y == bottle.coordinate.y )
+            {
+                found = true
+                selectedBottle = bottle
+                break
+            }
+        }
+        if(found) {
+            debugPrint(selectedBottle.getTitle())
+            GlobalDetailCoordinator.selectedBottle = selectedBottle
+            GlobalDetailCoordinator.showingDetails = true;
+        }
+        else
+        {
+            debugPrint("That's not good")
+        }
+        
+    }
     
-    
-    
+
+
     private func addAnnotationWithTitle(title: String, subtitle: String, loc:MaplyCoordinate) {
         theViewC?.clearAnnotations()
 
         let a = MaplyAnnotation()
         a.title = title
         a.subTitle = subtitle
-        
         theViewC?.addAnnotation(a, forPoint: loc, offset: CGPoint.zero)
     }
     
@@ -302,19 +353,20 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         }
         // 49.625349, 11.266090
        
-        
-        QueryVendingMachines()
+
         
         if let mapViewC = mapViewC {
             mapViewC.delegate = self
         }
-
+        
+        QueryVendingMachines()
     }
     
 }
 
 struct OSMViewController_Previews: PreviewProvider {
+    @State static public var showingDetails = false
     static var previews: some View {
-        OsmView()
+        OsmView(showingDetails: .constant(false), osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
     }
 }
