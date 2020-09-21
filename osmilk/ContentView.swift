@@ -18,30 +18,9 @@ struct ContentView: View {
 
 
             OsmView(showingDetails: $showingDetails, osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
-            
-//            MapView()
-                .frame(height:600)
                 .edgesIgnoringSafeArea(.top)
             
-//            CircleImage()
-//                .offset(y: -130)
-//                .padding(.bottom,-130)
-            VStack {
-                Text("osmilk")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                HStack {
-                    Text("Best app you've ever seen")
-                        .font(.subheadline)
-                    Spacer()
-                    Text("Milkaway")
-                        .font(.subheadline)
-                }
-            .padding()
-                
-            Spacer()
-            }
+
         }
     }
 }
@@ -49,6 +28,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            
     }
 }
 
