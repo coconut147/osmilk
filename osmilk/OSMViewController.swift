@@ -118,10 +118,17 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     
     private var theViewC: MaplyBaseViewController?
     private var boundingBox = OPBoundingBox(
-    minLatitude: 47,
-    minLongitude: 5,
-    maxLatitude: 47.00001,
-    maxLongitude: 5.00001)
+    minLatitude: 46.240652,
+    minLongitude: 5.328369,
+    maxLatitude: 54.737307,
+    maxLongitude: 14.974365)
+    
+    /*
+     This covers Germany
+     54.737307, 5.328369
+     46.240652, 14.974365
+     */
+    
     
     func maplyViewController(_ viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
             theViewC?.clearAnnotations()
@@ -132,7 +139,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     func maplyViewController(_ viewC: MaplyViewController, didStopMoving corners: UnsafeMutablePointer<MaplyCoordinate>, userMotion: Bool) {
     
         if userMotion  {
-            UnlockMap() 
+            UnlockMap()
         }
                 
         boundingBox = OPBoundingBox(
@@ -210,7 +217,6 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     
     public func QueryVendingMachines() {
         
-        MilkBottles.removeAll()
         do {
             let query = try OPQueryBuilder()
                 .setTimeOut(180) //1
@@ -235,6 +241,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
                         debugPrint("Error")
                         debugPrint(error.localizedDescription)
                     case .success(let elements):
+                        self.MilkBottles.removeAll()
                         debugPrint("Found " + String(elements.count) + " vending machines")
 
                         for element in elements {
@@ -348,7 +355,6 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
         theViewC!.view.frame = self.view.bounds
         addChild(theViewC!)
         
-        let globeViewC = theViewC as? WhirlyGlobeViewController
         let mapViewC = theViewC as? MaplyViewController
         
         // we want a black background for a globe, a white background for a map.
@@ -383,13 +389,8 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
         
     
 
-        // start up over Madrid, center of the old-world
-        if let globeViewC = globeViewC {
-            globeViewC.height = 0.8
-            globeViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(-3.6704803, 40.5023056), time: 1.0)
-        }
-        else if let mapViewC = mapViewC {
-            mapViewC.height = 0.01
+            if let mapViewC = mapViewC {
+            mapViewC.height = 0.1
             mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(11.266090, 49.625349), time: 1.0)
         }
         // 49.625349, 11.266090
