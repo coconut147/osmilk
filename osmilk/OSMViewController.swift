@@ -29,10 +29,15 @@ struct OsmView: View {
     }
     
     public var body: some View {
+        
         VStack {
             OsmMapView
-
             HStack {
+                Button(action: {
+                    self.OsmMapView.LocateUser()
+                }) {
+                   Text("  Locate")
+                }
                 Spacer()
                 Button(action:
                 {
@@ -45,6 +50,7 @@ struct OsmView: View {
             .sheet(isPresented: GlobalDetailCoordinator.$showingDetails) {
                 MilkBottleDetailView(bottle: GlobalDetailCoordinator.selectedBottle)
             }
+            
         }
     }
 }
@@ -75,13 +81,17 @@ struct OsmViewControllerRepresentable: UIViewControllerRepresentable {
         
     }
     public func QueryVendingMachines() {
-       OsmController.QueryVendingMachines()
+        OsmController.QueryVendingMachines()
+    }
+    public func LocateUser() {
+        OsmController.LocateUser()
     }
 }
 
 
 
-class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
+class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
+    MaplyLocationTrackerDelegate {
 
     @Binding var showingDetails: Bool
     
@@ -100,6 +110,11 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
    }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+      }
+      func locationManager(_ manager: CLLocationManager, didChange status: CLAuthorizationStatus) {
+      }
+    
     
     private var theViewC: MaplyBaseViewController?
     private var boundingBox = OPBoundingBox(
@@ -116,7 +131,9 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
     
     func maplyViewController(_ viewC: MaplyViewController, didStopMoving corners: UnsafeMutablePointer<MaplyCoordinate>, userMotion: Bool) {
     
-                
+        if userMotion  {
+            UnlockMap() 
+        }
                 
         boundingBox = OPBoundingBox(
          minLatitude: Double(corners[2].y * 180 / .pi),
@@ -163,6 +180,33 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
     
     private var overpassClient: OPClient? // The client for requesting/decoding Overpass data
     private var MilkBottles = [MilkBottle]()
+    
+    private var locationTrackingEnabled = false;
+    
+    
+    public func LocateUser() {
+        if locationTrackingEnabled {
+            theViewC?.stopLocationTracking()
+            locationTrackingEnabled = false
+            
+            UnlockMap()
+            
+        }
+        else {
+            theViewC!.startLocationTracking(with: self, useHeading: true, useCourse: true, simulate: false)
+            
+                LockMapToLocation()
+                locationTrackingEnabled = true
+        }
+    }
+    
+    private func LockMapToLocation() {
+        theViewC!.changeLocationTrackingLockType(MaplyLocationLockNorthUp)
+    }
+    private func UnlockMap() {
+        theViewC!.changeLocationTrackingLockType(MaplyLocationLockNone)
+    }
+    
     
     public func QueryVendingMachines() {
         
@@ -308,7 +352,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
         let mapViewC = theViewC as? MaplyViewController
         
         // we want a black background for a globe, a white background for a map.
-        theViewC!.clearColor = (globeViewC != nil) ? UIColor.black : UIColor.white
+        theViewC!.clearColor = UIColor.white
 
         // and thirty fps if we can get it ­ change this to 3 if you find your app is struggling
         theViewC!.frameInterval = 2
@@ -345,7 +389,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
             globeViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(-3.6704803, 40.5023056), time: 1.0)
         }
         else if let mapViewC = mapViewC {
-            mapViewC.height = 0.001
+            mapViewC.height = 0.01
             mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(11.266090, 49.625349), time: 1.0)
         }
         // 49.625349, 11.266090
@@ -365,5 +409,7 @@ struct OSMViewController_Previews: PreviewProvider {
     @State static public var showingDetails = false
     static var previews: some View {
         OsmView(showingDetails: .constant(false), osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
+            
+            
     }
 }
