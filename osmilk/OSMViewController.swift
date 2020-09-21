@@ -107,7 +107,6 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
     minLongitude: 5,
     maxLatitude: 47.00001,
     maxLongitude: 5.00001)
-    public var selectedMilkBottle = MilkBottle()
     
     func maplyViewController(_ viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
             theViewC?.clearAnnotations()
@@ -152,8 +151,6 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate {
             
             
             addAnnotationWithTitle(title: title, subtitle: subtitle, loc: selectedObject.loc)
-            
-            self.selectedMilkBottle = selectedBottle
             
         }
     }
