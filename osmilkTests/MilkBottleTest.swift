@@ -43,6 +43,9 @@ class MilkBottleTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+
+    
+    
     func testVending()
     {
         let vending = String("milk")
@@ -56,6 +59,14 @@ class MilkBottleTest: XCTestCase {
 
 class MilkBottleTagHandlingTest: XCTestCase {
 
+    func testImageURL() throws {
+        let key = String("image")
+        let value = String("https://upload.wikimedia.org/wikipedia/commons/0/06/Frischmilchautomat_Tannheim_Gesamtansicht.jpg")
+        var testCandidate = MilkBottle()
+        testCandidate.addTag(key: key, value: value)
+        XCTAssertEqual(testCandidate.imageURL,value)
+    }
+    
     func testAddName() throws {
         let key = String("name")
         let value = String("Milchautomat Freudenhof")

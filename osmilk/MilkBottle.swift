@@ -41,6 +41,8 @@ struct MilkBottle {
                 description = value
             case "opening_hours":
                 openingHours = value
+            case "image":
+                imageURL = value
             default:
                 break
         }
