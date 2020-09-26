@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import MapKit
 
 struct MilkBottle {
     var identifier = String();
@@ -66,6 +66,15 @@ struct MilkBottle {
     func getEmojitizedVending() -> String {
         return MilkBottle.emojitizeVending(vending: vending)
     }
+    
+    func getCoordinate() -> CLLocationCoordinate2D {
+        
+        let latitude = CLLocationDegrees(coordinate.y * 180 / .pi)
+        let longitude = CLLocationDegrees(coordinate.x * 180 / .pi)
+ 
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
     
     static func emojitizeVending(vending: String) -> String {
         var emojitizedString = String("");

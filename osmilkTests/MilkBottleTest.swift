@@ -55,6 +55,20 @@ class MilkBottleTest: XCTestCase {
         
     }
     
+    func testGetCoordinate() throws {
+        var testCandidate = MilkBottle()
+        testCandidate.coordinate.x = 0.123
+        testCandidate.coordinate.y = 0.567
+        
+        let location = testCandidate.getCoordinate()
+        
+        
+        XCTAssertTrue(location.latitude.isEqual(to: Double(testCandidate.coordinate.y * 180 / .pi)))
+        XCTAssertTrue(location.longitude.isEqual(to: Double(testCandidate.coordinate.x * 180 / .pi)))
+        
+    }
+    
+    
 }
 
 class MilkBottleTagHandlingTest: XCTestCase {
@@ -88,6 +102,7 @@ class MilkBottleTagHandlingTest: XCTestCase {
         testCandidate.addTag(key: key, value: value)
         XCTAssertEqual(testCandidate.getEmojitizedVending(),MilkBottle.emojitizeVending(vending: value))
     }
+    
     func testRetrieveTags() throws {
         var testCandidate = MilkBottle()
         

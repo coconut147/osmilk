@@ -7,45 +7,45 @@
 //
 
 import SwiftUI
-
+import MapKit
 
 struct MilkBottleDetailView: View {
     internal init(bottle: MilkBottle) {
         self.bottle = bottle
         detailImage.loadImage(bottle: bottle)
+        detailMap.setPoi(title: bottle.getTitle(), coordinate: bottle.getCoordinate())
     }
     
     @Environment(\.presentationMode) var presentationMode
     
     private var bottle = MilkBottle()
     private var detailImage = ImageView()
+    private var detailMap = MapView()
     var body: some View {
         
         
         VStack {
             Spacer()
-            
             Text(self.bottle.getTitle())
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.center)
                 
             Text(self.bottle.getEmojitizedVending())
                 .font(.largeTitle)
-                .fixedSize()
                 
                 
-            Text(self.bottle.identifier)
+            Text("ID:" + self.bottle.identifier)
                 .font(.footnote)
                 .foregroundColor(Color.gray)
             
             Text(self.bottle.description)
+                .padding(.horizontal, 5.0)
             
             Text("Opening Hours: " + self.bottle.openingHours)
 
-            detailImage
-                .frame(width: 400, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .clipped()
-            
+            detailMap
+                .frame(height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
             Button(action: {
                 guard let url = URL(string: bottle.website) else { return }
@@ -54,14 +54,20 @@ struct MilkBottleDetailView: View {
                 Text(bottle.website)
             }
             
-            Spacer()
+            
+            
+            detailImage
+                .frame(width: 400, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .clipped()
+            
             Button(action: { self.presentationMode.wrappedValue.dismiss()
                 
                 
                 
             }) {
-            Text("Dismiss")
+            Text("Close")
             }
+            
         }
         
     }
@@ -73,7 +79,7 @@ struct MilkBottleDetailView: View {
 struct MilkBottleDetailView_Previews: PreviewProvider {
     
     static let milkBottles = [
-        "Sample": MilkBottle(identifier: "1234", coordinate: MaplyCoordinate(x: 49, y: 15), name: "Milchhof Schlumpfbär", description: "One of the best sample Vending machines you have ever seen", owner: "Freddy Inc.", vending: "cheese;milk;meat;sausage;fruit", website: "www.freddy.beer", imageURL: "https://upload.wikimedia.org/wikipedia/commons/0/06/Frischmilchautomat_Tannheim_Gesamtansicht.jpg", openingHours: "9 to five")
+        "Sample": MilkBottle(identifier: "1234", coordinate: MaplyCoordinate(x: 0.1, y: 0.1), name: "Milchhof Schlumpfbär", description: "One of the best sample Vending machines you have ever seen.\nVending milk, butter, and apples. This is such a good vending machine, you have to see it.", owner: "Freddy Inc.", vending: "cheese;milk;meat;sausage;fruit", website: "www.freddy.beer", imageURL: "https://upload.wikimedia.org/wikipedia/commons/0/06/Frischmilchautomat_Tannheim_Gesamtansicht.jpg", openingHours: "9 to five")
     ]
     
     static var previews: some View {
@@ -87,7 +93,7 @@ struct MilkBottleDetailView_Previews: PreviewProvider {
 struct ImageView: UIViewRepresentable {
     private var imageView = UIImageView()
     func updateUIView(_ uiView: UIImageView, context: Context) {
-        
+
     }
     
 
