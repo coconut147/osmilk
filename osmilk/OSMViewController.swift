@@ -369,13 +369,13 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
 
         // Because this is a remote tile set, we'll want a cache directory
         let baseCacheDir = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
-        let tilesCacheDir = "\(baseCacheDir)/stamentiles/"
+        let tilesCacheDir = "\(baseCacheDir)/openstreetmap_tiles/"
         let maxZoom = Int32(18)
 
         // Stamen Terrain Tiles, courtesy of Stamen Design under the Creative Commons Attribution License.
         // Data by OpenStreetMap under the Open Data Commons Open Database License.
         guard let tileSource = MaplyRemoteTileSource(
-                baseURL: "http://tile.stamen.com/terrain/",
+                baseURL: "https://a.tile.openstreetmap.de/",
                 ext: "png",
                 minZoom: 0,
                 maxZoom: maxZoom) else {
