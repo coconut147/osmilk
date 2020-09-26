@@ -39,13 +39,13 @@ struct OsmView: View {
                    Text("  Locate")
                 }
                 Spacer()
-                Button(action:
-                {
-                    self.OsmMapView.QueryVendingMachines()
-                }
-                ) {
-                        Text("Refresh  ")
-                }
+//                Button(action:
+//                {
+//                    self.OsmMapView.QueryVendingMachines()
+//                }
+//                ) {
+//                        Text("Refresh  ")
+//                }
             }
             .sheet(isPresented: GlobalDetailCoordinator.$showingDetails) {
                 MilkBottleDetailView(bottle: GlobalDetailCoordinator.selectedBottle)
