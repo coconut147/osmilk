@@ -68,6 +68,21 @@ class MilkBottleTest: XCTestCase {
         
     }
     
+    func testGetOpeningHoursEmpty() throws {
+        let testCandidate = MilkBottle()
+        let expectedString = ""
+        let openingHours = testCandidate.getOpeningHours()
+        
+        XCTAssertEqual(expectedString,openingHours)
+    }
+    func testGetOpeningHours() throws {
+        var testCandidate = MilkBottle()
+        testCandidate.openingHours = "9 to Five"
+        let expectedString = "Opening Hours: " + testCandidate.openingHours
+        let openingHours = testCandidate.getOpeningHours()
+        
+        XCTAssertEqual(expectedString,openingHours)
+    }
     
 }
 
@@ -80,6 +95,15 @@ class MilkBottleTagHandlingTest: XCTestCase {
         testCandidate.addTag(key: key, value: value)
         XCTAssertEqual(testCandidate.imageURL,value)
     }
+   
+    func testOpeningHours() throws {
+        let key = String("opening_hours")
+        let value = String("9 to five")
+        var testCandidate = MilkBottle()
+        testCandidate.addTag(key: key, value: value)
+        XCTAssertEqual(testCandidate.openingHours,value)
+    }
+    
     
     func testAddName() throws {
         let key = String("name")

@@ -75,6 +75,15 @@ struct MilkBottle {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
+    func getOpeningHours() -> String {
+        if openingHours != "" {
+            return "Opening Hours: " + openingHours
+        }
+        else {
+            return ""
+        }
+        
+    }
     
     static func emojitizeVending(vending: String) -> String {
         var emojitizedString = String("");

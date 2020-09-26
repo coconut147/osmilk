@@ -42,7 +42,7 @@ struct MilkBottleDetailView: View {
             Text(self.bottle.description)
                 .padding(.horizontal, 5.0)
             
-            Text("Opening Hours: " + self.bottle.openingHours)
+            Text(self.bottle.getOpeningHours())
 
             detailMap
                 .frame(height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
