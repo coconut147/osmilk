@@ -61,7 +61,7 @@
 		30F1393DD1F2E1232D7569E10BCB42C2 /* NestedPolygonCoordinates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NestedPolygonCoordinates.swift; path = Source/Models/NestedPolygonCoordinates.swift; sourceTree = "<group>"; };
 		36645DB9C0393E7DCFC2DDDC33C656A7 /* OPMapKitVisualization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OPMapKitVisualization.swift; path = Source/Models/OPMapKitVisualization.swift; sourceTree = "<group>"; };
 		3B2631B2AACDA882AB138EFC2FCB7F39 /* Pods-osmilk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-osmilk-dummy.m"; sourceTree = "<group>"; };
-		3F8D6F99D4ABDB6C460CD7E2392023A2 /* libPods-osmilk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-osmilk.a"; path = "libPods-osmilk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8D6F99D4ABDB6C460CD7E2392023A2 /* libPods-osmilk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osmilk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A18A1DA9473D1FB0E87401CE026C774 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Source/Utilities/Errors.swift; sourceTree = "<group>"; };
 		4DF75BD0D0B0FC759C9E52813ED15978 /* SwiftOverpassAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftOverpassAPI-dummy.m"; sourceTree = "<group>"; };
 		4FE76BFF651F72B400581A002FC4AD8E /* OPElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OPElement.swift; path = Source/Protocols/OPElement.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		98D6C64E9D0EFDC9935C7F5ABB9FC5F5 /* OPWay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OPWay.swift; path = Source/Models/OPWay.swift; sourceTree = "<group>"; };
 		9B61EA562E8B72524B0F92C7B650D6EC /* Pods-osmilk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-osmilk.release.xcconfig"; sourceTree = "<group>"; };
 		9BAFFDB2FAAE7B60E49F0565EBC6E316 /* ElementCodingKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementCodingKeys.swift; path = Source/Models/ElementCodingKeys.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AF86EDE9151F3C7DF3483C06C7B0E02E /* SwiftOverpassAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftOverpassAPI.debug.xcconfig; sourceTree = "<group>"; };
 		B2819EA7E1B2A7688D6FAF4D28C8A7D6 /* SwiftOverpassAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftOverpassAPI.modulemap; sourceTree = "<group>"; };
 		C2642E32C6B57CE882023ED9BE686264 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Source/Utilities/Constants.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		D893F550077D6113272F693A00964CB4 /* ElementsCodingKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementsCodingKeys.swift; path = Source/Models/ElementsCodingKeys.swift; sourceTree = "<group>"; };
 		DD3181C138CA5F7CAC6B335220AD1E21 /* Pods-osmilk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-osmilk.modulemap"; sourceTree = "<group>"; };
 		EE4E7E5C90F49900CD7393E4A0AB0DE2 /* OPQueryBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OPQueryBuilder.swift; path = Source/Controllers/OPQueryBuilder.swift; sourceTree = "<group>"; };
-		F189F4CD817180B6E5365B23236D1A78 /* libSwiftOverpassAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSwiftOverpassAPI.a; path = libSwiftOverpassAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F189F4CD817180B6E5365B23236D1A78 /* libSwiftOverpassAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftOverpassAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A1AD21C5A50BA246E56E733DD4AC1C /* DecoderExtractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecoderExtractor.swift; path = Source/Utilities/DecoderExtractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,7 +205,6 @@
 				D5AD43BA717ACF4DD5122F5952809C63 /* TagChecker.swift */,
 				310AD3A6409A74BF68F7830183797195 /* Support Files */,
 			);
-			name = SwiftOverpassAPI;
 			path = SwiftOverpassAPI;
 			sourceTree = "<group>";
 		};
@@ -281,7 +280,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1230;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -392,7 +391,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = Headers/Public/SwiftOverpassAPI/SwiftOverpassAPI.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -418,7 +417,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftOverpassAPI/SwiftOverpassAPI-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = Headers/Public/SwiftOverpassAPI/SwiftOverpassAPI.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -460,6 +459,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -524,6 +524,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
