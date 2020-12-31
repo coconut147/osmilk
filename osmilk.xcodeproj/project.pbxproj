@@ -33,6 +33,7 @@
 		CCA48D3924E7DFEC0093CBF6 /* OSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */; };
 		CCA48D3C24E804B30093CBF6 /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */; };
 		CCA48D3E24E812740093CBF6 /* Milk.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA48D3D24E812730093CBF6 /* Milk.png */; };
+		CCC5FF9D25211EAE009024CB /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = CCC5FF9B25211EAE009024CB /* Splash.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		CCA48D3824E7DFEC0093CBF6 /* OSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMViewController.swift; sourceTree = "<group>"; };
 		CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; name = "geography-class_medres.mbtiles"; path = "resources/geography-class_medres.mbtiles"; sourceTree = SOURCE_ROOT; };
 		CCA48D3D24E812730093CBF6 /* Milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Milk.png; path = resources/Milk.png; sourceTree = SOURCE_ROOT; };
+		CCC5FF9B25211EAE009024CB /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = resources/Splash.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		CCA48D3A24E804440093CBF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCC5FF9B25211EAE009024CB /* Splash.png */,
 				CCA48D3B24E804B30093CBF6 /* geography-class_medres.mbtiles */,
 				CCA48D3D24E812730093CBF6 /* Milk.png */,
 			);
@@ -400,6 +403,7 @@
 				CC45CFFF24E7231A008B7B25 /* LaunchScreen.storyboard in Resources */,
 				CCA48D3E24E812740093CBF6 /* Milk.png in Resources */,
 				CC45CFFC24E7231A008B7B25 /* Preview Assets.xcassets in Resources */,
+				CCC5FF9D25211EAE009024CB /* Splash.png in Resources */,
 				CC45CFF924E7231A008B7B25 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
