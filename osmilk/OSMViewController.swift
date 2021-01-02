@@ -39,17 +39,18 @@ struct OsmView: View {
                    Text("  Locate")
                 }
                 Spacer()
-//                Button(action:
-//                {
-//                    self.OsmMapView.QueryVendingMachines()
-//                }
-//                ) {
-//                        Text("Refresh  ")
-//                }
+                Button(action:
+                {
+                    self.OsmMapView.QueryVendingMachines()
+                }
+                ) {
+                        Text("Refill  ")
+                }
             }
             .sheet(isPresented: GlobalDetailCoordinator.$showingDetails) {
                 MilkBottleDetailView(bottle: GlobalDetailCoordinator.selectedBottle)
             }
+
             
         }
     }
@@ -61,7 +62,6 @@ struct DetailCoordinator {
 }
 
 var GlobalDetailCoordinator = DetailCoordinator(showingDetails: .constant(false),  selectedBottle: MilkBottle())
-
 
 
 
@@ -94,6 +94,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     MaplyLocationTrackerDelegate {
 
     @Binding var showingDetails: Bool
+    
     
     init(showingDetails: Binding<Bool>) {
         self._showingDetails = showingDetails
@@ -133,26 +134,6 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     func maplyViewController(_ viewC: MaplyViewController, didTapAt coord: MaplyCoordinate) {
             theViewC?.clearAnnotations()
     }
-    
-    
-    
-    func maplyViewController(_ viewC: MaplyViewController, didStopMoving corners: UnsafeMutablePointer<MaplyCoordinate>, userMotion: Bool) {
-    
-        if userMotion  {
-            UnlockMap()
-        }
-                
-        boundingBox = OPBoundingBox(
-         minLatitude: Double(corners[2].y * 180 / .pi),
-         minLongitude: Double((corners[0].x * 180 / .pi)),
-         maxLatitude: Double(corners[0].y * 180 / .pi),
-         maxLongitude: Double((corners[1].x * 180 / .pi)))
-            
-        //An array of length 4 containing the corners of the view space (lower left, lower right, upper right, upper left). If any of those corners does not intersect the map (think zoomed out), its values are set to MAXFLOAT.
-
-    }
-    
-    
     
     
     /*
@@ -215,7 +196,18 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     }
     
     
+    private func showError(detailedText: String)
+    {
+        GlobalDetailCoordinator.showingDetails = false
+        GlobalDetailCoordinator.selectedBottle = MilkBottle(identifier: "Error occured!", name: "Milk Bottle is broken", description: "Something failed while filling the milk bottles...\n " + detailedText, vending: "Milk")
+        GlobalDetailCoordinator.showingDetails = true
+    }
+    
+    
     public func QueryVendingMachines() {
+
+        GlobalDetailCoordinator.selectedBottle = MilkBottle(identifier: "Loading...", name: "Currently Loading...", description: "The milk bottles need to be found, cleaned, filled and shown on the map. After loading, tap a milk bottle to read the title. If you tap on the title a detail view will be opened. Have fun!", vending: "milk,jam,food,cheese,meat")
+        GlobalDetailCoordinator.showingDetails = true
         
         do {
             let query = try OPQueryBuilder()
@@ -232,6 +224,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
             //1
             overpassClient!.endpoint = .main//2
             debugPrint("Start Fetching with Overpass API")
+            GlobalDetailCoordinator.showingDetails = true
             //3
             overpassClient?.fetchElements(query: query) { result in
                 debugPrint("Finished Fetch")
@@ -240,6 +233,8 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
                     case .failure(let error):
                         debugPrint("Error")
                         debugPrint(error.localizedDescription)
+                        self.showError(detailedText: error.localizedDescription)
+                        
                     case .success(let elements):
                         self.MilkBottles.removeAll()
                         debugPrint("Found " + String(elements.count) + " vending machines")
@@ -298,16 +293,18 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
 
                         self.theViewC?.addScreenMarkers(markers, desc: nil)
                     
-                    
+                        GlobalDetailCoordinator.showingDetails = false
                 }
+                
             }
             
 
         } catch {
 
+            QueryVendingMachines()
             debugPrint(error.localizedDescription)
+            self.showError(detailedText: "Exception occured")
         }
-
         
     }
         
@@ -345,6 +342,12 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
         a.subTitle = subtitle
         theViewC?.addAnnotation(a, forPoint: loc, offset: CGPoint.zero)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        QueryVendingMachines()
+     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -390,8 +393,8 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     
 
             if let mapViewC = mapViewC {
-            mapViewC.height = 0.1
-            mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(11.266090, 49.625349), time: 1.0)
+                mapViewC.height = 0.01
+            mapViewC.animate(toPosition: MaplyCoordinateMakeWithDegrees(11.208983421325712, 49.200454711914034), time: 1.0)
         }
         // 49.625349, 11.266090
        
@@ -400,16 +403,17 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
         if let mapViewC = mapViewC {
             mapViewC.delegate = self
         }
-        
-        QueryVendingMachines()
+
     }
     
 }
 
 struct OSMViewController_Previews: PreviewProvider {
     @State static public var showingDetails = false
+
     static var previews: some View {
-        OsmView(showingDetails: .constant(false), osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
+        OsmView(showingDetails: .constant(false),
+                osmapview: OsmViewControllerRepresentable(osmController: OSMViewController(showingDetails: $showingDetails)))
             
             
     }

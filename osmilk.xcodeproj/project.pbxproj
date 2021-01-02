@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0253C47177D6A2C2FF55FD49 /* libPods-osmilk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A19CBD83BC506B50292676 /* libPods-osmilk.a */; };
+		CC12270225A08C4500DAEEB8 /* MilkBottleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC12270125A08C4500DAEEB8 /* MilkBottleLoadingView.swift */; };
 		CC43DFC024E86C6E00907200 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313F24E7261D002F20F6 /* CoreLocation.framework */; };
 		CC43DFC324E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; };
 		CC43DFC424E86C7000907200 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC8F313B24E725BA002F20F6 /* WhirlyGlobeMaplyComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -92,6 +93,7 @@
 		2207098CA0B421E63CE4D276 /* Pods-osmilk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.release.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.release.xcconfig"; sourceTree = "<group>"; };
 		25D24816A27E6D77E37C3582 /* Pods-osmilk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osmilk.debug.xcconfig"; path = "Target Support Files/Pods-osmilk/Pods-osmilk.debug.xcconfig"; sourceTree = "<group>"; };
 		81A19CBD83BC506B50292676 /* libPods-osmilk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osmilk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC12270125A08C4500DAEEB8 /* MilkBottleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkBottleLoadingView.swift; sourceTree = "<group>"; };
 		CC43DFC524E9C36300907200 /* MilkBottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MilkBottle.swift; path = osmilk/MilkBottle.swift; sourceTree = SOURCE_ROOT; };
 		CC43DFC724E9C4A300907200 /* MilkBottleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilkBottleTest.swift; sourceTree = "<group>"; };
 		CC43DFC924E9C5A200907200 /* osmilkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = osmilkTests.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				CCA48D3A24E804440093CBF6 /* Resources */,
 				CCA48D3624E7DB760093CBF6 /* MapView.swift */,
+				CC12270125A08C4500DAEEB8 /* MilkBottleLoadingView.swift */,
 				CC43DFC524E9C36300907200 /* MilkBottle.swift */,
 				CC43DFD224EB179700907200 /* MilkBottleDetailView.swift */,
 				CCA48D3424E7D7DE0093CBF6 /* CircleImage.swift */,
@@ -462,6 +465,7 @@
 				CC45CFF524E72315008B7B25 /* osmilk.xcdatamodeld in Sources */,
 				CCA48D3924E7DFEC0093CBF6 /* OSMViewController.swift in Sources */,
 				CC43DFD324EB179700907200 /* MilkBottleDetailView.swift in Sources */,
+				CC12270225A08C4500DAEEB8 /* MilkBottleLoadingView.swift in Sources */,
 				CCA48D3524E7D7DE0093CBF6 /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

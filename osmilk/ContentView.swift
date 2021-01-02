@@ -13,6 +13,8 @@ import WhirlyGlobeMaplyComponent
 
 struct ContentView: View {
     @State public var showingDetails = false
+
+    
     var body: some View {
         VStack {
 
