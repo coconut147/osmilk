@@ -33,11 +33,11 @@ struct OsmView: View {
         VStack {
             OsmMapView
             HStack {
-                Button(action: {
-                    self.OsmMapView.LocateUser()
-                }) {
-                   Text("  Locate")
-                }
+//                Button(action: {
+//                    self.OsmMapView.LocateUser()
+//                }) {
+//                   Text("  Locate")
+//                }
                 Spacer()
                 Button(action:
                 {
@@ -206,7 +206,7 @@ class OSMViewController : MaplyViewController, MaplyViewControllerDelegate,
     
     public func QueryVendingMachines() {
 
-        GlobalDetailCoordinator.selectedBottle = MilkBottle(identifier: "Loading...", name: "Currently Loading...", description: "The milk bottles need to be found, cleaned, filled and shown on the map. After loading, tap a milk bottle to read the title. If you tap on the title a detail view will be opened. Have fun!", vending: "milk,jam,food,cheese,meat")
+        GlobalDetailCoordinator.selectedBottle = MilkBottle(identifier: "Loading...", name: "Currently Loading...", description: "The milk bottles need to be found, cleaned, filled and shown on the map. After loading, tap a milk bottle to read the title. If you tap on the title a detail view will be opened. Have fun!", vending: "milk,jam,food,cheese,meat", openingHours: "This dialog will close automatically!")
         GlobalDetailCoordinator.showingDetails = true
         
         do {
